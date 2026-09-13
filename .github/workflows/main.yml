@@ -1,0 +1,29 @@
+name: Build HALANQI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Theos
+        run: |
+          git clone --recursive https://github.com/theos/theos.git "$HOME/theos"
+          echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
+          echo "$HOME/theos/bin" >> "$GITHUB_PATH"
+
+      - name: Build HALANQI
+        run: |
+          export THEOS="$HOME/theos"
+          make package FINALPACKAGE=1
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: HALANQI-package
+          path: packages/*
