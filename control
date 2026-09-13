@@ -1,0 +1,9 @@
+Package: com.halanqi.realmenu
+Name: HALANQI Real Menu
+Version: 2.0.0
+Architecture: iphoneos-arm
+Description: HALANQI independent in-game menu with runtime object capture and verified selector invocation.
+Maintainer: HALANQI
+Author: HALANQI
+Section: Tweaks
+Depends: mobilesubstrate
