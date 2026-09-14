@@ -11,6 +11,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          brew update
+          brew install ldid
+
       - name: Install Theos
         run: |
           git clone --recursive https://github.com/theos/theos.git "$HOME/theos"
@@ -20,6 +25,7 @@ jobs:
       - name: Build HALANQI
         run: |
           export THEOS="$HOME/theos"
+          make clean
           make package FINALPACKAGE=1
 
       - name: Upload package
@@ -27,3 +33,4 @@ jobs:
         with:
           name: HALANQI-package
           path: packages/*
+          if-no-files-found: error
