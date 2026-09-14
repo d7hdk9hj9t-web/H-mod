@@ -5,7 +5,7 @@ INSTALL_TARGET_PROCESSES := agar.io
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME := HALANQI
-HALANQI_FILES := Tweak.xm HALANQI/HalanqiMenu.m HALANQI/HalanqiGameBridge.m
+HALANQI_FILES := Tweak.xm HalanqiMenu.m HalanqiGameBridge.m
 HALANQI_CFLAGS := -fobjc-arc
 HALANQI_FRAMEWORKS := UIKit Foundation QuartzCore
 
